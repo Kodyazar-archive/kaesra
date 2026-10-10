@@ -1,0 +1,142 @@
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import 'tailwindcss';
+
+@theme {
+  --color-app: #0b0e13;
+  --color-panel: #11151c;
+  --color-raised: #171c25;
+  --color-hover: #1c222d;
+  --color-line: #1f2630;
+  --color-line2: #2b3440;
+  --color-t1: #e6ebf2;
+  --color-t2: #9aa5b4;
+  --color-t3: #5e6875;
+  --color-accent: #2ad2e8;
+  --color-accent-hi: #50e9ff;
+  --color-warn: #e8b44c;
+  --color-err: #f0555e;
+  --color-ok: #3dd68c;
+
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --radius-btn: 4px;
+  --radius-panel: 6px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-app);
+  color: var(--color-t1);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(42, 210, 232, 0.28);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2b3440 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2b3440;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* panel header: 11px mono uppercase, letterspaced */
+.panel-h {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-t3);
+}
+
+.data-v {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease,
+    box-shadow 120ms ease;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(42, 210, 232, 0.45);
+  outline-offset: 2px;
+}
+
+@keyframes ms-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-in {
+  animation: ms-fade-in 150ms ease-out;
+}
+
+/* instrument frame: hairline corner brackets around the viewport */
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--color-line2);
+  opacity: 0.85;
+}
+.corner.tl {
+  left: 8px;
+  top: 8px;
+  border-left-width: 1px;
+  border-top-width: 1px;
+}
+.corner.tr {
+  right: 8px;
+  top: 8px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+}
+.corner.bl {
+  left: 8px;
+  bottom: 8px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+}
+.corner.br {
+  right: 8px;
+  bottom: 8px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
